@@ -1,4 +1,4 @@
-package com.meetingrooms.booking.meetingroomsbooking;
+package com.meetingrooms.booking;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

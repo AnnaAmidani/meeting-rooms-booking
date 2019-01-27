@@ -1,0 +1,4 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://makers-event:6UN5PIvvJkOv8Utn0u35fmIjI9LIoIn943rxsMwY8U0bPIvqlp0gzqycYtnkXKfho7RziQIRGFpDU9Iy6n3j8g==@makers-event.documents.azure.com:10255/meetingrooms?ssl=true&replicaSet=globaldb
