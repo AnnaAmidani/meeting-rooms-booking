@@ -23,7 +23,7 @@ public class AvailabilityRequest{
     this.from = from;
   }
 
-  public String getTimeFrom(){
+  public LocalDateTime getTimeFrom(){
     return from;
   }
 
@@ -34,7 +34,7 @@ public class AvailabilityRequest{
     this.to = to;
   }
 
-  public String getTimeTo(){
+  public LocalDateTime getTimeTo(){
     return to;
   }
 

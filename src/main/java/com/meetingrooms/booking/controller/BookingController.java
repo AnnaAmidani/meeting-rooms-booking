@@ -34,18 +34,10 @@ class BookingController {
 	@Autowired
 	BookingService bookingService;
 
-
 	@GetMapping(value = "/findAll", produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody List<Booking> findAll() {
 		return bookingService.findAll();
 	}
-
-	@ApiOperation(value = "Finds all the existing bookings for a meeting room", notes = "Provides the overall list of bookings for a meeting room", response = Booking.class, responseContainer = "List")
-	@GetMapping(value = "/findByRoomNumber", produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody List<Booking> findByRoomRef(String roomRef) {
-		return bookingService.findByRoomRef(roomRef);
-	}
-
 
 	@ApiOperation(value = "Stores a new booking for a meeting room", response = Booking.class)
 	@PostMapping(path = "/bookARoom", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
