@@ -22,6 +22,9 @@ import com.meetingrooms.booking.service.BookingService;
 
 import io.swagger.annotations.ApiOperation;
 
+import com.meetingrooms.booking.model.AvailabilityRequest;
+import com.meetingrooms.booking.model.AvailabilityResponse;
+
 @RestController
 @RequestMapping(path = "/bookings")
 class BookingController {
@@ -31,19 +34,21 @@ class BookingController {
 	@Autowired
 	BookingService bookingService;
 
-
 	@GetMapping(value = "/findAll", produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody List<Booking> findAll() {
 		return bookingService.findAll();
 	}
-
-
 
 	@ApiOperation(value = "Stores a new booking for a meeting room", response = Booking.class)
 	@PostMapping(path = "/bookARoom", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Booking> submitQuestion(@RequestBody @Valid Booking booking) {
 		bookingService.bookARoom(booking);
 		return new ResponseEntity<>(HttpStatus.CREATED);
+	}
+
+  @PostMapping(path = "/isAvailable", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public AvailabilityResponse isAvailable(@RequestBody AvailabilityRequest availabilityRequest){
+		return new AvailabilityResponse(true);
 	}
 
 }
