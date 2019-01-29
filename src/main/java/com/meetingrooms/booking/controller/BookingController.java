@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.meetingrooms.booking.model.Booking;
+import com.meetingrooms.booking.model.Room;
 import com.meetingrooms.booking.service.BookingService;
+import com.meetingrooms.booking.service.RoomService;
 
 import io.swagger.annotations.ApiOperation;
 
@@ -33,10 +35,18 @@ class BookingController {
 
 	@Autowired
 	BookingService bookingService;
+	
+	@Autowired
+	RoomService roomService;
 
 	@GetMapping(value = "/findAll", produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody List<Booking> findAll() {
 		return bookingService.findAll();
+	}
+	
+	@GetMapping(value = "/roomNames", produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody List<Room> getRoomNames() {
+		return roomService.findAll();
 	}
 
 	@ApiOperation(value = "Stores a new booking for a meeting room", response = Booking.class)
