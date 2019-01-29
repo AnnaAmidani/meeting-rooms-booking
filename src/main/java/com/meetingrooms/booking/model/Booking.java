@@ -2,6 +2,7 @@ package com.meetingrooms.booking.model;
 
 import java.time.LocalDateTime;
 
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Size;
 
 import org.springframework.data.annotation.Id;
@@ -16,7 +17,7 @@ public class Booking {
 	@Size(max = 20)
 	private String roomName;
 	
-	private String roomRef;
+	private String roomId;
 	
 	@JsonFormat(pattern="yyyy-MM-dd-HH:mm:ss")
 	private LocalDateTime from;
@@ -24,12 +25,17 @@ public class Booking {
 	@JsonFormat(pattern="yyyy-MM-dd-HH:mm:ss")
 	private LocalDateTime to;
 	
-	public Booking(String roomName, String roomRef, LocalDateTime from, LocalDateTime to) {
-		this.roomName = roomName;
-		this.roomRef = roomRef;
-		this.from = from;
-		this.to = to;
-	}
+	@Size(max = 50)
+	private String bookingRef;
+	
+	@Max(value = 100)
+	private int capacity; 
+	
+	@Size(max = 50)
+	private String creator;
+	
+	@Size(max = 50)
+	private String email;
 	
 	public Booking() {
 		
@@ -49,14 +55,62 @@ public class Booking {
 
 
 
-	public String getRoomRef() {
-		return roomRef;
+	public String getRoomId() {
+		return roomId;
 	}
 
 
 
-	public void setRoomRef(String roomRef) {
-		this.roomRef = roomRef;
+	public void setRoomId(String roomId) {
+		this.roomId = roomId;
+	}
+
+
+
+	public String getBookingRef() {
+		return bookingRef;
+	}
+
+
+
+	public void setBookingRef(String bookingRef) {
+		this.bookingRef = bookingRef;
+	}
+
+
+
+	public int getCapacity() {
+		return capacity;
+	}
+
+
+
+	public void setCapacity(int capacity) {
+		this.capacity = capacity;
+	}
+
+
+
+	public String getCreator() {
+		return creator;
+	}
+
+
+
+	public void setCreator(String creator) {
+		this.creator = creator;
+	}
+
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 
@@ -87,6 +141,6 @@ public class Booking {
 
 	@Override
 	public String toString() {
-		return String.format("Booking[roomName=%s, roomRef='%s', from='%s', to='%s']", roomName, roomRef, from, to);
+		return String.format("Booking[roomName=%s, roomId='%s', from='%s', to='%s', bookingRef='%s', capacity='%s', creator='%s', email='%s']", roomName, roomId, from, to, bookingRef, capacity, creator, email);
 	}
 }

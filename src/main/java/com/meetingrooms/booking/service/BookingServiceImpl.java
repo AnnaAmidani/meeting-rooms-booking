@@ -28,11 +28,6 @@ public class BookingServiceImpl implements BookingService {
 	}
 
 	@Override
-	public List<Booking> findByRoomRef(String roomRef) {
-		return bookingRepository.findByRoomRef(roomRef);
-	}
-
-	@Override
 	public Booking bookARoom(final Booking booking) {
 		return bookingRepository.save(booking);
 	}

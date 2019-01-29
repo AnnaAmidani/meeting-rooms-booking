@@ -11,6 +11,5 @@ import com.meetingrooms.booking.model.Booking;
 @Repository
 public interface BookingRepository extends MongoRepository<Booking, String> {
 
-	List<Booking> findByRoomRef(String roomRef);
 
 }
