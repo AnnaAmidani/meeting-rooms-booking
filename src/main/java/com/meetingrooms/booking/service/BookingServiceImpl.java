@@ -9,6 +9,7 @@ import com.meetingrooms.booking.model.Booking;
 import com.meetingrooms.booking.repository.BookingRepository;
 import com.mongodb.MongoClient;
 
+import com.meetingrooms.booking.model.AvailabilityRequest;
 
 @Service
 public class BookingServiceImpl implements BookingService {
@@ -32,5 +33,12 @@ public class BookingServiceImpl implements BookingService {
 		return bookingRepository.save(booking);
 	}
 
+	@Override
+	public boolean isAvailable(AvailabilityRequest availabilityRequest) {
+		List<Booking> allBookings = bookingRepository.findAll();
+		return !allBookings.stream().filter(booking -> booking.getRoomName().equals(availabilityRequest.getRoomName()))
+			.filter(booking -> booking.getFrom().isAfter(availabilityRequest.getTo()))
+				.filter(booking -> booking.getTo().isBefore(availabilityRequest.getFrom())).findAny().isPresent();
+	}
 
 }

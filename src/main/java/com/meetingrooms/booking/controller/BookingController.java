@@ -48,7 +48,7 @@ class BookingController {
 
   @PostMapping(path = "/isAvailable", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public AvailabilityResponse isAvailable(@RequestBody AvailabilityRequest availabilityRequest){
-		return new AvailabilityResponse(true);
+		return new AvailabilityResponse(bookingService.isAvailable(availabilityRequest));
 	}
 
 }

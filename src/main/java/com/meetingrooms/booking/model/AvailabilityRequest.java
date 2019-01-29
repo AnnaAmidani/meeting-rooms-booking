@@ -19,22 +19,22 @@ public class AvailabilityRequest{
   @JsonFormat(pattern="yyyy-MM-dd-HH:mm:ss")
   private LocalDateTime from;
 
-  public void setTimeFrom(LocalDateTime from){
+  public void setFrom(LocalDateTime from){
     this.from = from;
   }
 
-  public LocalDateTime getTimeFrom(){
+  public LocalDateTime getFrom(){
     return from;
   }
 
   @JsonFormat(pattern="yyyy-MM-dd-HH:mm:ss")
   private LocalDateTime to;
 
-  public void setTimeTo(LocalDateTime to){
+  public void setTo(LocalDateTime to){
     this.to = to;
   }
 
-  public LocalDateTime getTimeTo(){
+  public LocalDateTime getTo(){
     return to;
   }
 
