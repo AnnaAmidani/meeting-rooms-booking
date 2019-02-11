@@ -16,7 +16,6 @@ public class AvailabilityRequest{
     return roomName;
   }
 
-  @JsonFormat(pattern="yyyy-MM-dd-HH:mm:ss")
   private LocalDateTime from;
 
   public void setFrom(LocalDateTime from){
@@ -27,7 +26,6 @@ public class AvailabilityRequest{
     return from;
   }
 
-  @JsonFormat(pattern="yyyy-MM-dd-HH:mm:ss")
   private LocalDateTime to;
 
   public void setTo(LocalDateTime to){

@@ -19,10 +19,8 @@ public class Booking {
 	
 	private String roomId;
 	
-	@JsonFormat(pattern="yyyy-MM-dd-HH:mm:ss")
 	private LocalDateTime from;
 	
-	@JsonFormat(pattern="yyyy-MM-dd-HH:mm:ss")
 	private LocalDateTime to;
 	
 	@Size(max = 50)
@@ -39,9 +37,7 @@ public class Booking {
 	
 	public Booking() {
 		
-	}
-
-	
+	}	
 	
 	public String getRoomName() {
 		return roomName;
